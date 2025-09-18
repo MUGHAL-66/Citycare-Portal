@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700&family=Inter:wght@300;400;500;600&family=Roboto+Mono:wght@400;500;600&display=swap');
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 16px;
+  
+  /* CityCare Color Palette */
+  --citycare-primary: #2B7A78;
+  --citycare-secondary: #17252A;
+  --citycare-accent: #FE5F55;
+  --citycare-background: #DEF2F1;
+  --citycare-surface: #ffffff;
+  
+  /* Semantic Colors */
+  --background: var(--citycare-background);
+  --foreground: var(--citycare-secondary);
+  --card: var(--citycare-surface);
+  --card-foreground: var(--citycare-secondary);
+  --popover: var(--citycare-surface);
+  --popover-foreground: var(--citycare-secondary);
+  --primary: var(--citycare-primary);
+  --primary-foreground: #ffffff;
+  --secondary: var(--citycare-secondary);
+  --secondary-foreground: #ffffff;
+  --muted: #f8fffe;
+  --muted-foreground: #6b7280;
+  --accent: var(--citycare-accent);
+  --accent-foreground: #ffffff;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: rgba(43, 122, 120, 0.2);
+  --input: transparent;
+  --input-background: var(--citycare-surface);
+  --switch-background: #e5e7eb;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: var(--citycare-primary);
+  
+  /* Chart Colors - CityCare Theme */
+  --chart-1: var(--citycare-primary);
+  --chart-2: var(--citycare-accent);
+  --chart-3: var(--citycare-secondary);
+  --chart-4: #10b981;
+  --chart-5: #f59e0b;
+  
+  --radius: 0.75rem;
+  --sidebar: var(--citycare-surface);
+  --sidebar-foreground: var(--citycare-secondary);
+  --sidebar-primary: var(--citycare-primary);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: var(--muted);
+  --sidebar-accent-foreground: var(--citycare-secondary);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--citycare-primary);
+}
+
+.dark {
+  /* Dark Mode CityCare Palette */
+  --background: var(--citycare-secondary);
+  --foreground: #ffffff;
+  --card: #1f2937;
+  --card-foreground: #ffffff;
+  --popover: #1f2937;
+  --popover-foreground: #ffffff;
+  --primary: var(--citycare-primary);
+  --primary-foreground: #ffffff;
+  --secondary: #374151;
+  --secondary-foreground: #ffffff;
+  --muted: #374151;
+  --muted-foreground: #9ca3af;
+  --accent: var(--citycare-accent);
+  --accent-foreground: #ffffff;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: rgba(255, 255, 255, 0.1);
+  --input: #374151;
+  --input-background: #374151;
+  --ring: var(--citycare-primary);
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --chart-1: var(--citycare-primary);
+  --chart-2: var(--citycare-accent);
+  --chart-3: #60a5fa;
+  --chart-4: #10b981;
+  --chart-5: #f59e0b;
+  --sidebar: #1f2937;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: var(--citycare-primary);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #374151;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: rgba(255, 255, 255, 0.1);
+  --sidebar-ring: var(--citycare-primary);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/**
+ * CityCare Typography System
+ * Headings: Public Sans Bold
+ * Body: Inter Regular  
+ * Numbers/Stats: Roboto Mono
+ */
+@layer base {
+  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) {
+    h1 {
+      font-family: 'Public Sans', sans-serif;
+      font-weight: 700;
+      font-size: 2.5rem;
+      line-height: 1.2;
+      letter-spacing: -0.025em;
+    }
+
+    h2 {
+      font-family: 'Public Sans', sans-serif;
+      font-weight: 700;
+      font-size: 2rem;
+      line-height: 1.3;
+      letter-spacing: -0.025em;
+    }
+
+    h3 {
+      font-family: 'Public Sans', sans-serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      line-height: 1.4;
+    }
+
+    h4 {
+      font-family: 'Public Sans', sans-serif;
+      font-weight: 700;
+      font-size: 1.25rem;
+      line-height: 1.4;
+    }
+
+    p {
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    label {
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      font-size: 0.875rem;
+      line-height: 1.5;
+    }
+
+    button {
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      font-size: 0.875rem;
+      line-height: 1.5;
+    }
+
+    input, textarea, select {
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      font-size: 0.875rem;
+      line-height: 1.5;
+    }
+
+    .font-mono, .stats-text {
+      font-family: 'Roboto Mono', monospace;
+    }
+  }
+}
+
+/* Utility classes for CityCare typography */
+.heading-font {
+  font-family: 'Public Sans', sans-serif;
+}
+
+.body-font {
+  font-family: 'Inter', sans-serif;
+}
+
+.mono-font {
+  font-family: 'Roboto Mono', monospace;
+}
+
+html {
+  font-size: var(--font-size);
+}
